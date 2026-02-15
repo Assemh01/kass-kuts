@@ -58,23 +58,25 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center pt-6"
+          className="pt-6 flex justify-center"
         >
-          <a
-            href="https://booksy.com/en-us/dl/show-business/1584930?utm_medium=c2c_referral"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 bg-[#4f8dff] hover:bg-[#3f7df5] active:bg-[#356ae6] text-white font-semibold rounded-lg transition-all hover:scale-105"
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("open-booking"))}
+            className="
+              inline-flex items-center justify-center
+              px-12 py-4
+              bg-[#4f8dff] hover:bg-[#3f7df5] active:bg-[#356ae6]
+              text-white font-semibold
+              rounded-lg
+              shadow-[0_18px_50px_rgba(79,141,255,0.28)]
+              transition-colors
+              focus:outline-none focus:ring-2 focus:ring-[#4f8dff]/60 focus:ring-offset-2 focus:ring-offset-black/40
+              cursor-pointer
+            "
           >
             Book Appointment
-          </a>
-
-          <a
-            href="#services"
-            className="px-8 py-4 border border-white/20 hover:border-white/40 text-white font-semibold rounded-lg transition-all"
-          >
-            View Services
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>
