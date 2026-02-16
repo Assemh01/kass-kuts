@@ -18,7 +18,7 @@ export function Hero() {
         />
 
         {/* Side darkening */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/35 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
 
         {/* Edge vignette */}
         <div className="absolute inset-0 [background:radial-gradient(80%_70%_at_35%_45%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.35)_60%,rgba(0,0,0,0.8)_100%)]" />

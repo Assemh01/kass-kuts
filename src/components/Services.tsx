@@ -233,16 +233,8 @@ export function Services() {
   const active = data[location];
 
   return (
-    <section id="services" className="relative scroll-mt-28 bg-black">
-      <div className="mx-auto max-w-7xl px-6 py-20">
-        {/* Premium Glow Divider */}
-        <div className="mt-6 mb-14 flex justify-center">
-          <div className="relative w-full max-w-7xl">
-            <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#4f8dff] to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#4f8dff]/80 to-transparent blur-3xl opacity-60" />
-          </div>
-        </div>
-
+    <section id="services" className="relative scroll-mt-28 bg-black -mt-20 md:-mt-2">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-10 md:pt-12 pb-10">
         {/* Header */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
