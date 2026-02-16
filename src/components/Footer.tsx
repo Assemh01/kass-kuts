@@ -29,15 +29,13 @@ export default function Footer() {
             Precision Cuts. Modern Style. Real Confidence.
           </p>
 
-          <a
-            href="https://booksy.com/en-us/dl/show-business/1584930"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("open-booking"))}
             className="inline-flex items-center gap-2 mt-5 px-5 py-3 bg-[#4f8dff] hover:bg-[#3f7df5] text-white text-sm font-semibold rounded-lg transition-all hover:scale-105"
           >
             Book Appointment
-            <ExternalLink size={16} />
-          </a>
+          </button>
         </div>
 
         {/* Quick Links */}
