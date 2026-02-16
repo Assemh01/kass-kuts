@@ -58,6 +58,7 @@ components/
   Testimonials.tsx
   About.tsx
 
+---
 
 ## 🧠 Focus Areas
 
@@ -77,7 +78,10 @@ This build emphasizes:
 npm install
 npm run dev
 
+---
+
 '''text
 Open:
+---
 '''bash
 http://localhost:3000
