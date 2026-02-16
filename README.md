@@ -43,8 +43,47 @@ Pre-deployment (Vercel deployment pending)
 
 ---
 
-## 📁 Architecture Overview
+📁 Architecture Overview
 
+app/
+    layout.tsx
+    page.tsx
+    sitemap.ts
+    robots.ts
+
+components/
+    Navbar.tsx
+    Services.tsx
+    Testimonials.tsx
+    About.tsx
+
+🧠 Focus Areas
+
+This build emphasizes:
+
+Production-style folder structure
+
+Reusable UI components
+
+Clean state management
+
+Local search optimization preparation
+
+Conversion-oriented UI design
+
+🚀 Running Locally
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+Then open:
+
+http://localhost:3000
 ```text
 app/
   layout.tsx
