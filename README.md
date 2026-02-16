@@ -44,20 +44,20 @@ Pre-deployment (Vercel deployment pending)
 ---
 
 ## 📁 Architecture Overview
+
+```text
 app/
-layout.tsx
-page.tsx
-sitemap.ts
-robots.ts
+  layout.tsx
+  page.tsx
+  sitemap.ts
+  robots.ts
 
 components/
-Navbar.tsx
-Services.tsx
-Testimonials.tsx
-About.tsx
+  Navbar.tsx
+  Services.tsx
+  Testimonials.tsx
+  About.tsx
 
-
----
 
 ## 🧠 Focus Areas
 
@@ -77,5 +77,7 @@ This build emphasizes:
 npm install
 npm run dev
 
+'''text
 Open:
+'''bash
 http://localhost:3000
