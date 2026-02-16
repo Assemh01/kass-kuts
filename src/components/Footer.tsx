@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, MapPin, Clock, ExternalLink } from "lucide-react";
+import { Instagram, MapPin, Clock, ExternalLink, Phone } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -24,6 +24,7 @@ export default function Footer() {
               KUTS
             </span>
           </div>
+
           <p className="mt-3 text-sm leading-6">
             Precision Cuts. Modern Style. Real Confidence.
           </p>
@@ -57,16 +58,18 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a
-                href="#testimonials"
-                className="hover:text-[#4f8dff] transition"
-              >
+              <a href="#testimonials" className="hover:text-[#4f8dff] transition">
                 Reviews
               </a>
             </li>
             <li>
               <a href="#about" className="hover:text-[#4f8dff] transition">
                 About
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="hover:text-[#4f8dff] transition">
+                Contact
               </a>
             </li>
           </ul>
@@ -78,7 +81,7 @@ export default function Footer() {
             Locations
           </h4>
 
-          <div className="mt-4 space-y-5 text-sm leading-6">
+          <div className="mt-4 space-y-4 text-sm leading-6">
             <div>
               <div className="flex items-center gap-2 text-white/90 font-medium">
                 <MapPin size={16} />
@@ -105,34 +108,55 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Hours + Social */}
-        <div>
-          <h4 className="text-white text-sm font-semibold tracking-wide">
-            Hours
-          </h4>
+        {/* Right Column */}
+        <div className="space-y-4">
+          {/* Hours */}
+          <div>
+            <h4 className="text-white text-sm font-semibold tracking-wide">
+              Hours
+            </h4>
 
-          <div className="mt-4 flex items-start gap-2 text-sm leading-6">
-            <Clock size={16} className="mt-1 text-white/70" />
-            <div>
-              Mon – Sat: 9AM – 7PM
-              <br />
-              Sunday: Closed
+            <div className="mt-3 flex items-start gap-2 text-sm leading-6">
+              <Clock size={16} className="mt-1 text-white/70" />
+              <div>
+                Mon – Sat: 9AM – 7PM
+                <br />
+                Sunday: Closed
+              </div>
             </div>
           </div>
 
-          <h5 className="mt-4 text-white text-sm font-semibold tracking-wide">
-            Follow Us
-          </h5>
+          {/* Follow Us */}
+          <div>
+            <h5 className="text-white text-sm font-semibold tracking-wide">
+              Follow Us
+            </h5>
 
-          <a
-            href="https://www.instagram.com/kass.kuts"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-2 text-sm leading-6 hover:text-[#4f8dff] transition"
-          >
-            <Instagram size={18} />
-            Instagram
-          </a>
+            <a
+              href="https://www.instagram.com/kass.kuts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center gap-2 text-sm leading-6 hover:text-[#4f8dff] transition"
+            >
+              <Instagram size={18} />
+              Instagram
+            </a>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h5 className="text-white text-sm font-semibold tracking-wide">
+              Contact
+            </h5>
+
+            <a
+              href="tel:+13136754086"
+              className="mt-2 inline-flex items-center gap-2 text-sm leading-6 hover:text-[#4f8dff] transition"
+            >
+              <Phone size={18} />
+              (313) 675-4086
+            </a>
+          </div>
         </div>
       </div>
 
