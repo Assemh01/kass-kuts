@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const SITE_URL = "https://kass-kuts.vercel.app";
+const SITE_URL = "https://kassemkuts.com";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +31,6 @@ export const metadata: Metadata = {
     "fade",
     "beard trim",
     "Michigan",
-    "Dearborn",
-    "Farmington",
     "Farmington Hills",
   ],
   alternates: {
@@ -42,7 +40,7 @@ export const metadata: Metadata = {
     title: "Kass Kuts | Barbershop in Michigan",
     description:
       "Modern barbershop offering fades, beard trims, and grooming services. Book appointments online.",
-    url: "/",
+    url: SITE_URL,
     siteName: "Kass Kuts",
     type: "website",
     images: [
@@ -83,6 +81,7 @@ export default function RootLayout({
 }) {
   const showGA = typeof GA_ID === "string" && GA_ID.startsWith("G-");
 
+  // Only Farmington Hills (since site footer/contact is now Farmington-only)
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -92,42 +91,6 @@ export default function RootLayout({
         name: "Kass Kuts",
         url: SITE_URL,
         telephone: "+13136754086",
-      },
-      {
-        "@type": "Barbershop",
-        "@id": `${SITE_URL}/#dearborn`,
-        name: "Kass Kuts — Dearborn",
-        url: SITE_URL,
-        telephone: "+13136754086",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "6601 Appoline St",
-          addressLocality: "Dearborn",
-          addressRegion: "MI",
-          postalCode: "48126",
-          addressCountry: "US",
-        },
-        hasMap: "https://maps.app.goo.gl/bUFrrohcBQSyrhZ98",
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            opens: "10:00",
-            closes: "19:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Saturday",
-            opens: "09:00",
-            closes: "18:00",
-          },
-        ],
-        potentialAction: {
-          "@type": "ReserveAction",
-          target:
-            "http://booksy.com/en-us/638291_kass-kuts_barber-shop_23794_dearborn#ba_s=seo",
-        },
-        parentOrganization: { "@id": `${SITE_URL}/#organization` },
       },
       {
         "@type": "Barbershop",
@@ -147,21 +110,27 @@ export default function RootLayout({
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            opens: "09:00",
-            closes: "20:00",
+            dayOfWeek: "Tuesday",
+            opens: "11:00",
+            closes: "19:00",
           },
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Saturday",
-            opens: "09:00",
+            dayOfWeek: "Wednesday",
+            opens: "11:00",
             closes: "18:00",
           },
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Sunday",
-            opens: "10:00",
-            closes: "16:00",
+            dayOfWeek: "Thursday",
+            opens: "11:00",
+            closes: "18:00",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Saturday",
+            opens: "11:00",
+            closes: "19:00",
           },
         ],
         potentialAction: {
