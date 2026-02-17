@@ -57,7 +57,7 @@ export function Contact() {
               Contact & Location
             </h2>
             <p className="mt-3 text-white/75 max-w-2xl">
-              One location. Same precision. Book in seconds.
+              One location. Book in seconds.
             </p>
           </div>
         </div>
