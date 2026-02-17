@@ -65,28 +65,28 @@ export function Services() {
       items: [
         {
           name: "Haircut",
-          price: 40,
+          price: 30,
           duration: "30 min",
           desc: "Precision cut tailored to your style.",
           icon: "cut",
         },
         {
           name: "Beard",
-          price: 20,
+          price: 15,
           duration: "15 min",
           desc: "Clean shaping and sharp detailing.",
           icon: "beard",
         },
         {
           name: "Haircut & beard",
-          price: 50,
+          price: 40,
           duration: "45 min",
           desc: "Full grooming package, clean and sharp.",
           icon: "beard",
         },
         {
           name: "Kid's haircut",
-          price: 30,
+          price: 20,
           duration: "30 min",
           desc: "Comfortable cut for younger clients.",
           icon: "kids",

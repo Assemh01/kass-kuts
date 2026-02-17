@@ -17,6 +17,7 @@ const ITEMS: GalleryItem[] = [
   { src: "/gallery/cut-5.jpg", alt: "Skin fade with straight fringe and sharp blend" },
   { src: "/gallery/cut-6.jpg", alt: "Mid skin fade with smooth back blend" },
   { src: "/gallery/cut-7.jpg", alt: "Side part with mid fade and clean beard trim" },
+  { src: "/gallery/cut-8.jpeg", alt: "Mid skin fade with sharp beard line-up and clean blend" },
 ];
 
 const IG_URL = "https://instagram.com/kass.kuts";
