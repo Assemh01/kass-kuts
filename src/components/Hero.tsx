@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export function Hero() {
+  const BOOKING_URL =
+    "https://booksy.com/en-us/1584930_kass-kuts_barber-shop_23574_farmington?do=invite&utm_content=link_in_bio&utm_medium=social&utm_source=ig#ba_s=dl_1";
+
   return (
     <section className="relative isolate min-h-screen flex items-center justify-center overflow-hidden pt-24">
       {/* Background Image */}
@@ -23,7 +26,7 @@ export function Hero() {
         {/* Edge vignette */}
         <div className="absolute inset-0 [background:radial-gradient(80%_70%_at_35%_45%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.35)_60%,rgba(0,0,0,0.8)_100%)]" />
 
-        {/* 👇 NEW spotlight behind headline */}
+        {/* Spotlight behind headline */}
         <div className="absolute inset-0 [background:radial-gradient(55%_40%_at_50%_45%,rgba(0,0,0,0.65)_0%,rgba(0,0,0,0.18)_55%,rgba(0,0,0,0)_75%)]" />
       </div>
 
@@ -60,9 +63,10 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="pt-6 flex justify-center"
         >
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new Event("open-booking"))}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               inline-flex items-center justify-center
               px-12 py-4
@@ -71,12 +75,12 @@ export function Hero() {
               rounded-lg
               shadow-[0_18px_50px_rgba(79,141,255,0.28)]
               transition-colors
-              focus:outline-none focus:ring-2 focus:ring-[#4f8dff]/60 focus:ring-offset-2 focus:ring-offset-black/40
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4f8dff]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black/40
               cursor-pointer
             "
           >
             Book Appointment
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
