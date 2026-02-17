@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
   Scissors,
   Sparkles,
@@ -10,8 +10,6 @@ import {
   Wand2,
   Droplets,
 } from "lucide-react";
-
-type LocationKey = "dearborn" | "farmington";
 
 type ServiceIcon =
   | "cut"
@@ -58,179 +56,94 @@ function ServiceIcon({ type }: { type: ServiceIcon }) {
 }
 
 export function Services() {
-  const [location, setLocation] = useState<LocationKey>("farmington");
+  const BOOKING_URL =
+    "https://booksy.com/en-us/1584930_kass-kuts_barber-shop_23574_farmington?do=invite&utm_content=link_in_bio&utm_medium=social&utm_source=ig#ba_s=dl_1";
 
-  // ✅ Booksy links per location (Services button will open the selected one directly)
-  const bookingLinks: Record<LocationKey, string> = {
-    dearborn:
-      "http://booksy.com/en-us/638291_kass-kuts_barber-shop_23794_dearborn#ba_s=seo",
-    farmington:
-      "https://booksy.com/en-us/1584930_kass-kuts_barber-shop_23574_farmington?do=invite&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnHNQz1a0vOV-IxiLNZYb4X5pY6eGiHWuIHEbGgPgGYjAjy9fWtQdtjlsjHlc_aem_zH2O7U6-csmVXkxqBnxQ3g&utm_content=link_in_bio&utm_medium=social&utm_source=ig#ba_s=dl_1",
-  };
-
-  const openSelectedLocation = () => {
-    const url = bookingLinks[location];
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
-  const data: Record<LocationKey, { label: string; items: ServiceItem[] }> =
-    useMemo(
-      () => ({
-        dearborn: {
-          label: "Dearborn",
-          items: [
-            {
-              name: "Hair cut",
-              price: 20,
-              duration: "20 min",
-              desc: "Clean cut finished sharp and natural.",
-              icon: "cut",
-            },
-            {
-              name: "Hair cut & lineup",
-              price: 30,
-              duration: "15 min",
-              desc: "Fresh cut with crisp line-up detailing.",
-              icon: "cut",
-            },
-            {
-              name: "Zero fade",
-              price: 25,
-              duration: "25 min",
-              desc: "Skin-close fade with smooth blend.",
-              icon: "fade",
-            },
-            {
-              name: "Kids haircut",
-              price: 20,
-              duration: "20 min",
-              desc: "Gentle, clean cut for kids.",
-              icon: "kids",
-            },
-            {
-              name: "Eyebrows",
-              price: 10,
-              duration: "5 min",
-              desc: "Quick shape-up for a cleaner look.",
-              icon: "brows",
-            },
-            {
-              name: "Mens HairColor",
-              price: 25,
-              duration: "30 min",
-              desc: "Natural color refresh and blend.",
-              icon: "color",
-            },
-            {
-              name: "Nose/ears wax",
-              price: 5,
-              duration: "5 min",
-              desc: "Fast, clean add-on service.",
-              icon: "wax",
-            },
-            {
-              name: "Low/high taper",
-              price: 25,
-              duration: "30 min",
-              desc: "Tapered sides with a sharp finish.",
-              icon: "fade",
-            },
-            {
-              name: "Hairwash",
-              price: 5,
-              duration: "10 min",
-              desc: "Quick wash to finish the service.",
-              icon: "wash",
-            },
-          ],
+  const data: { label: string; items: ServiceItem[] } = useMemo(
+    () => ({
+      label: "Farmington Hills",
+      items: [
+        {
+          name: "Haircut",
+          price: 40,
+          duration: "30 min",
+          desc: "Precision cut tailored to your style.",
+          icon: "cut",
         },
-        farmington: {
-          label: "Farmington Hills",
-          items: [
-            {
-              name: "Haircut",
-              price: 40,
-              duration: "30 min",
-              desc: "Precision cut tailored to your style.",
-              icon: "cut",
-            },
-            {
-              name: "Beard",
-              price: 20,
-              duration: "15 min",
-              desc: "Clean shaping and sharp detailing.",
-              icon: "beard",
-            },
-            {
-              name: "Haircut & beard",
-              price: 50,
-              duration: "45 min",
-              desc: "Full grooming package, clean and sharp.",
-              icon: "beard",
-            },
-            {
-              name: "Kid's haircut",
-              price: 30,
-              duration: "30 min",
-              desc: "Comfortable cut for younger clients.",
-              icon: "kids",
-            },
-            {
-              name: "Line up",
-              price: 20,
-              duration: "20 min",
-              desc: "Crisp edges and clean finish.",
-              icon: "fade",
-            },
-            {
-              name: "Men's haircut",
-              price: 40,
-              duration: "30 min",
-              desc: "Classic cut with a modern finish.",
-              icon: "cut",
-            },
-            {
-              name: "Eyebrow shaping",
-              price: 10,
-              duration: "10 min",
-              desc: "Refined shape for a sharper look.",
-              icon: "brows",
-            },
-            {
-              name: "Skin fade",
-              price: 40,
-              duration: "30 min",
-              desc: "Smooth fade with tight blend work.",
-              icon: "fade",
-            },
-            {
-              name: "Buzz cut",
-              price: 30,
-              duration: "30 min",
-              desc: "Clean, even cut with sharp edges.",
-              icon: "cut",
-            },
-            {
-              name: "Head shave & beard trim",
-              price: 50,
-              duration: "45 min",
-              desc: "Polished head shave with beard cleanup.",
-              icon: "shave",
-            },
-            {
-              name: "Hair wash",
-              price: 10,
-              duration: "10 min",
-              desc: "Quick wash to finish fresh.",
-              icon: "wash",
-            },
-          ],
+        {
+          name: "Beard",
+          price: 20,
+          duration: "15 min",
+          desc: "Clean shaping and sharp detailing.",
+          icon: "beard",
         },
-      }),
-      []
-    );
-
-  const active = data[location];
+        {
+          name: "Haircut & beard",
+          price: 50,
+          duration: "45 min",
+          desc: "Full grooming package, clean and sharp.",
+          icon: "beard",
+        },
+        {
+          name: "Kid's haircut",
+          price: 30,
+          duration: "30 min",
+          desc: "Comfortable cut for younger clients.",
+          icon: "kids",
+        },
+        {
+          name: "Line up",
+          price: 20,
+          duration: "20 min",
+          desc: "Crisp edges and clean finish.",
+          icon: "fade",
+        },
+        {
+          name: "Men's haircut",
+          price: 40,
+          duration: "30 min",
+          desc: "Classic cut with a modern finish.",
+          icon: "cut",
+        },
+        {
+          name: "Eyebrow shaping",
+          price: 10,
+          duration: "10 min",
+          desc: "Refined shape for a sharper look.",
+          icon: "brows",
+        },
+        {
+          name: "Skin fade",
+          price: 40,
+          duration: "30 min",
+          desc: "Smooth fade with tight blend work.",
+          icon: "fade",
+        },
+        {
+          name: "Buzz cut",
+          price: 30,
+          duration: "30 min",
+          desc: "Clean, even cut with sharp edges.",
+          icon: "cut",
+        },
+        {
+          name: "Head shave & beard trim",
+          price: 50,
+          duration: "45 min",
+          desc: "Polished head shave with beard cleanup.",
+          icon: "shave",
+        },
+        {
+          name: "Hair wash",
+          price: 10,
+          duration: "10 min",
+          desc: "Quick wash to finish fresh.",
+          icon: "wash",
+        },
+      ],
+    }),
+    []
+  );
 
   return (
     <section id="services" className="relative scroll-mt-28 bg-black -mt-20 md:-mt-2">
@@ -242,46 +155,16 @@ export function Services() {
               Services & Pricing
             </h2>
             <p className="mt-3 text-white/70 max-w-2xl">
-              Select a location to see services, prices, and timing.
+              Explore services, prices, and timing.
             </p>
-          </div>
-
-          {/* Right side: Toggle only */}
-          <div className="flex flex-col items-end gap-4 w-full md:w-auto">
-            <div className="flex w-full md:w-auto rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur-md">
-              <button
-                type="button"
-                onClick={() => setLocation("dearborn")}
-                className={[
-                  "flex-1 md:flex-none px-4 py-2 rounded-xl text-sm font-semibold transition cursor-pointer text-center whitespace-nowrap",
-                  location === "dearborn"
-                    ? "bg-[#4f8dff] text-white"
-                    : "text-white/70 hover:text-white hover:bg-white/10",
-                ].join(" ")}
-              >
-                Dearborn
-              </button>
-              <button
-                type="button"
-                onClick={() => setLocation("farmington")}
-                className={[
-                  "flex-1 md:flex-none px-4 py-2 rounded-xl text-sm font-semibold transition cursor-pointer text-center whitespace-nowrap",
-                  location === "farmington"
-                    ? "bg-[#4f8dff] text-white"
-                    : "text-white/70 hover:text-white hover:bg-white/10",
-                ].join(" ")}
-              >
-                Farmington Hills
-              </button>
-            </div>
           </div>
         </div>
 
-        {/* Subheader line */}
+        {/* Subheader line + Book Now */}
         <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div className="inline-block">
             <div className="text-white text-2xl md:text-3xl font-semibold tracking-tight">
-              {active.label}
+              {data.label}
             </div>
 
             <div className="relative mt-2 h-[3px] w-full">
@@ -290,10 +173,10 @@ export function Services() {
             </div>
           </div>
 
-          {/* ✅ Opens Booksy for selected toggle */}
-          <button
-            type="button"
-            onClick={openSelectedLocation}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="cursor-pointer inline-flex items-center justify-center rounded-xl
               bg-[#4f8dff] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#3f7df5]
               shadow-[0_18px_50px_rgba(79,141,255,0.22)]
@@ -301,15 +184,15 @@ export function Services() {
               hover:-translate-y-[1px]
               transition-all"
           >
-            Book this location
-          </button>
+            Book Now
+          </a>
         </div>
 
         {/* Cards */}
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {active.items.map((s) => (
+          {data.items.map((s) => (
             <div
-              key={`${location}-${s.name}`}
+              key={s.name}
               className="
                 rounded-2xl border border-white/10
                 bg-gradient-to-b from-white/7 to-white/3

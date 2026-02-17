@@ -3,19 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X, Instagram } from "lucide-react";
-import { BookingModal } from "@/components/BookingModal";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [bookingOpen, setBookingOpen] = useState(false);
 
-  const bookingLinks = {
-    dearborn:
-      "http://booksy.com/en-us/638291_kass-kuts_barber-shop_23794_dearborn#ba_s=seo",
-    farmington:
-      "https://booksy.com/en-us/1584930_kass-kuts_barber-shop_23574_farmington?do=invite&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnHNQz1a0vOV-IxiLNZYb4X5pY6eGiHWuIHEbGgPgGYjAjy9fWtQdtjlsjHlc_aem_zH2O7U6-csmVXkxqBnxQ3g&utm_content=link_in_bio&utm_medium=social&utm_source=ig#ba_s=dl_1",
-  };
+  const BOOKING_URL =
+    "https://booksy.com/en-us/1584930_kass-kuts_barber-shop_23574_farmington?do=invite&utm_content=link_in_bio&utm_medium=social&utm_source=ig#ba_s=dl_1";
 
   const IG_URL = "https://instagram.com/kass.kuts";
 
@@ -33,12 +27,6 @@ export function Navbar() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-
-  useEffect(() => {
-    const openBooking = () => setBookingOpen(true);
-    window.addEventListener("open-booking", openBooking);
-    return () => window.removeEventListener("open-booking", openBooking);
   }, []);
 
   useEffect(() => {
@@ -90,7 +78,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Links */}
+        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
@@ -102,7 +90,6 @@ export function Navbar() {
             </a>
           ))}
 
-          {/* Instagram icon */}
           <a
             href={IG_URL}
             target="_blank"
@@ -117,15 +104,17 @@ export function Navbar() {
             <Instagram className="h-5 w-5 text-white/85" />
           </a>
 
-          <button
-            onClick={() => setBookingOpen(true)}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${brandBlue} text-white px-5 py-2 rounded-lg text-sm font-semibold transition-colors`}
           >
             Book Now
-          </button>
+          </a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile toggle */}
         <button
           className="md:hidden text-white/85 hover:text-white transition-colors"
           onClick={() => setOpen((v) => !v)}
@@ -135,7 +124,7 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-white/10 bg-black/55 backdrop-blur-2xl transition-opacity duration-200">
           <div className="px-6 py-10 flex flex-col items-center gap-6 text-center">
@@ -152,7 +141,6 @@ export function Navbar() {
 
             <div className="h-px w-full bg-white/10 my-2" />
 
-            {/* Instagram row */}
             <a
               href={IG_URL}
               target="_blank"
@@ -172,25 +160,18 @@ export function Navbar() {
               <span className="font-semibold">@kass.kuts</span>
             </a>
 
-
-            <button
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
               className={`${brandBlue} w-full max-w-sm mx-auto text-center text-white py-3 rounded-lg font-semibold`}
-              onClick={() => {
-                setOpen(false);
-                setBookingOpen(true);
-              }}
             >
               Book Now
-            </button>
+            </a>
           </div>
         </div>
       )}
-
-      <BookingModal
-        open={bookingOpen}
-        onClose={() => setBookingOpen(false)}
-        links={bookingLinks}
-      />
     </nav>
   );
 }

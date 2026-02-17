@@ -43,7 +43,6 @@ export function Testimonials() {
         text: "I had an amazing experience at Kass Kuts! Kass is professional, skilled, and really knows how to give a sharp, clean cut.",
         source: "Yelp",
         date: "Jan 5, 2026",
-        location: "Dearborn, MI",
       },
       {
         name: "Jawad Assaf",

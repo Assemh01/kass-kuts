@@ -35,7 +35,6 @@ Pre-deployment (Vercel deployment pending)
 
 - Responsive navigation (desktop & mobile)
 - Services section with structured pricing
-- Dual-location support (Dearborn & Farmington)
 - Testimonials carousel
 - External booking integration
 - SEO-ready metadata configuration

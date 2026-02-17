@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, MapPin, Clock, ExternalLink, Phone } from "lucide-react";
+import { Instagram, MapPin, Clock, Phone } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+
+  const BOOKING_URL =
+    "https://booksy.com/en-us/1584930_kass-kuts_barber-shop_23574_farmington?do=invite&utm_content=link_in_bio&utm_medium=social&utm_source=ig#ba_s=dl_1";
 
   return (
     <footer className="bg-[#0f0f0f] border-t border-white/10 text-white/70 mt-10">
@@ -29,13 +32,14 @@ export default function Footer() {
             Precision Cuts. Modern Style. Real Confidence.
           </p>
 
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new Event("open-booking"))}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-5 px-5 py-3 bg-[#4f8dff] hover:bg-[#3f7df5] text-white text-sm font-semibold rounded-lg transition-all hover:scale-105"
           >
             Book Appointment
-          </button>
+          </a>
         </div>
 
         {/* Quick Links */}
@@ -73,58 +77,47 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Locations */}
+        {/* Location + Hours */}
         <div>
           <h4 className="text-white text-sm font-semibold tracking-wide">
-            Locations
+            Location
           </h4>
 
-          <div className="mt-4 space-y-4 text-sm leading-6">
-            <div>
-              <div className="flex items-center gap-2 text-white/90 font-medium">
-                <MapPin size={16} />
-                Dearborn
+          <div className="mt-4 text-sm leading-6 space-y-6">
+            {/* Location row */}
+            <div className="flex items-start gap-2">
+              <MapPin size={16} className="mt-1 text-white/70 shrink-0" />
+              <div>
+                <div className="text-white/90 font-medium">Farmington Hills</div>
+                <div className="mt-1 text-white/70">
+                  32408 W 8 Mile Rd
+                  <br />
+                  Farmington Hills, MI 48336
+                </div>
               </div>
-              <p className="mt-1">
-                12345 Michigan Ave
-                <br />
-                Dearborn, MI
-              </p>
             </div>
 
+            {/* Hours block (same alignment as location) */}
             <div>
-              <div className="flex items-center gap-2 text-white/90 font-medium">
-                <MapPin size={16} />
-                Farmington Hills
+              <h5 className="text-white text-sm font-semibold tracking-wide">
+                Hours
+              </h5>
+
+              <div className="mt-3 flex items-start gap-2">
+                <Clock size={16} className="mt-1 text-white/70 shrink-0" />
+                <div className="space-y-1">
+                  <div>Tuesday: 11AM – 7PM</div>
+                  <div>Wednesday: 11AM – 6PM</div>
+                  <div>Thursday: 11AM – 6PM</div>
+                  <div>Saturday: 11AM – 7PM</div>
+                </div>
               </div>
-              <p className="mt-1">
-                67890 Orchard Lake Rd
-                <br />
-                Farmington Hills, MI
-              </p>
             </div>
           </div>
         </div>
 
-        {/* Right Column */}
+        {/* Follow + Contact */}
         <div className="space-y-4">
-          {/* Hours */}
-          <div>
-            <h4 className="text-white text-sm font-semibold tracking-wide">
-              Hours
-            </h4>
-
-            <div className="mt-3 flex items-start gap-2 text-sm leading-6">
-              <Clock size={16} className="mt-1 text-white/70" />
-              <div>
-                Mon – Sat: 9AM – 7PM
-                <br />
-                Sunday: Closed
-              </div>
-            </div>
-          </div>
-
-          {/* Follow Us */}
           <div>
             <h5 className="text-white text-sm font-semibold tracking-wide">
               Follow Us
@@ -141,7 +134,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Contact */}
           <div>
             <h5 className="text-white text-sm font-semibold tracking-wide">
               Contact
