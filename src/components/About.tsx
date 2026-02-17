@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export function About() {
   return (
     <section id="about" className="relative scroll-mt-28 bg-black">
@@ -25,20 +27,17 @@ export function About() {
               Kass Kuts is known for precision, consistency, and a clean finish
               every single time. Clients don’t just come in for a haircut — they
               come for a sharp, detailed experience built on skill,
-              professionalism, and attention to detail. From skin fades to crisp
-              lineups and full grooming sessions, every cut is handled with care
-              and craftsmanship.
+              professionalism, and attention to detail.
             </p>
 
             <p className="mt-6 text-white/75 leading-[1.75] text-lg md:text-xl max-w-2xl">
-              Whether you’re walking in for a quick refresh or booking a full
-              grooming appointment, the focus stays the same: modern style,
-              meticulous execution, and a premium atmosphere that keeps clients
-              coming back.
+              From skin fades to crisp lineups and full grooming sessions, every
+              cut is handled with care and craftsmanship in a premium, modern
+              atmosphere that keeps clients coming back.
             </p>
           </div>
 
-          {/* RIGHT — Image Card */}
+          {/* RIGHT — Card */}
           <div className="relative">
             <div
               className="
@@ -52,21 +51,23 @@ export function About() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#4f8dff]/10 via-transparent to-transparent" />
 
-              <div className="relative flex min-h-[320px] items-center justify-center rounded-xl border border-white/10 bg-black/30">
-                <div className="text-center">
-                  <div className="text-white/90 font-semibold">
-                    Image coming soon
-                  </div>
-                  <div className="mt-2 text-sm text-white/50">
-                    Replace with Kass in action
-                  </div>
-                </div>
+              {/* Image */}
+              <div className="relative h-[300px] md:h-[340px] w-full bg-black overflow-hidden rounded-xl border border-white/10">
+                <Image
+                  src="/about-image.jpeg"
+                  alt="Kass Kuts barber at work"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-[60%_30%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
               </div>
 
               {/* Subtle Premium Flair */}
-              <div className="mt-8 text-center">
+              <div className="relative mt-6 text-center">
                 <div className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                  Meet Kass
+                  Meet Kassem
                 </div>
                 <div className="relative mt-3 h-[2px] w-32 mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#4f8dff] to-transparent" />

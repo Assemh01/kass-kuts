@@ -58,7 +58,6 @@ export default function Gallery() {
       window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = prevOverflow;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openIndex]);
 
   // Mobile: keep current page indicator updated on swipe/scroll
