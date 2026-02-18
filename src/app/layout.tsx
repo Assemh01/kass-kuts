@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Kass Kuts | Barbershop in Michigan",
+    default: "Barbershop in Farmington Hills, MI | Kass Kuts",
     template: "%s | Kass Kuts",
   },
   description:
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     "Michigan",
     "Farmington Hills",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
+
+  // Make OG/Twitter match the new local-focused title
   openGraph: {
-    title: "Kass Kuts | Barbershop in Michigan",
+    title: "Barbershop in Farmington Hills, MI | Kass Kuts",
     description:
-      "Modern barbershop offering fades, beard trims, and grooming services. Book appointments online.",
+      "Modern barbershop in Farmington Hills offering fades, beard trims, and grooming services. Book online.",
     url: SITE_URL,
     siteName: "Kass Kuts",
     type: "website",
@@ -54,11 +54,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kass Kuts | Barbershop in Michigan",
+    title: "Barbershop in Farmington Hills, MI | Kass Kuts",
     description:
-      "Modern barbershop offering fades, beard trims, and grooming services. Book appointments online.",
+      "Modern barbershop in Farmington Hills offering fades, beard trims, and grooming services. Book online.",
     images: ["/og.png"],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -81,7 +82,6 @@ export default function RootLayout({
 }) {
   const showGA = typeof GA_ID === "string" && GA_ID.startsWith("G-");
 
-  // Only Farmington Hills (since site footer/contact is now Farmington-only)
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -91,6 +91,7 @@ export default function RootLayout({
         name: "Kass Kuts",
         url: SITE_URL,
         telephone: "+13136754086",
+        sameAs: ["https://instagram.com/kass.kuts"],
       },
       {
         "@type": "Barbershop",
@@ -98,6 +99,9 @@ export default function RootLayout({
         name: "Kass Kuts — Farmington Hills",
         url: SITE_URL,
         telephone: "+13136754086",
+        priceRange: "$$",
+        description:
+          "Modern barbershop in Farmington Hills, MI. Closed Sunday, Monday, and Friday.",
         address: {
           "@type": "PostalAddress",
           streetAddress: "32408 W 8 Mile Rd",
@@ -107,6 +111,16 @@ export default function RootLayout({
           addressCountry: "US",
         },
         hasMap: "https://maps.app.goo.gl/JrCkkJUvywyoKs2b7",
+
+        // Quick format Google understands well
+        openingHours: [
+          "Tu 11:00-19:00",
+          "We 11:00-18:00",
+          "Th 11:00-18:00",
+          "Sa 11:00-19:00",
+        ],
+
+        // Structured hours for schema richness
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -133,6 +147,7 @@ export default function RootLayout({
             closes: "19:00",
           },
         ],
+
         potentialAction: {
           "@type": "ReserveAction",
           target:
